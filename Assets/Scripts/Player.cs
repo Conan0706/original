@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float slidespeed = 30.0f;
+    public float speed = 10.0f;
+    public float slidespeed = 100.0f;
     // Start is called before the first frame update
     void Start()
     {

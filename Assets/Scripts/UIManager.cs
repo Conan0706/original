@@ -1,43 +1,25 @@
-Ôªøusing UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour {
-	
-	public Text gameovertext;
-	Canvas canvas;
-	CameraController cameraController;
+public class UIManager : MonoBehaviour
+{
+    public Text scoretext;
+    public float scorecounter=0.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-	void Start () {
-		canvas = GetComponent<Canvas> ();
-		canvas.enabled = false;
-		cameraController = GameObject.Find("Main Camera").GetComponent<CameraController>();
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        //ÉXÉRÉAï\é¶
+        scorecounter += Time.deltaTime*1.5f;
+        scoretext.text = scorecounter.ToString("f1") + "M";
+    }
 
-	void Update () {
-	
-	}
-
-	public void Gameover(){
-		gameovertext.text = "GAME\nOVER";
-		canvas.enabled = true;
-		cameraController.SetGameOver();
-	}
-
-	public void Goal(){
-		gameovertext.text = "GOAL";
-		canvas.enabled = true;
-	}
-		
-	public void Retry()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}
-
-	public void BackTitke()
-	{
-		SceneManager.LoadScene("Title");
-	}
-
+   
 }
