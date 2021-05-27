@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class GameController : MonoBehaviour
 {
     public GameObject[] objects = new GameObject[5];
@@ -63,11 +62,21 @@ public class GameController : MonoBehaviour
         if(time>interval)
         {
             GameObject enemy = Instantiate(obj);
-            Debug.Log(enemy);
+            //Debug.Log(enemy);
             enemy.transform.position = obj_pos;
             time = 0f;
         }
+
+        
+     
+
     }
+
+  
+
+
+
+
 
     void Shuffle(GameObject[] num)
     {
@@ -94,4 +103,6 @@ public class GameController : MonoBehaviour
         float x = Random.Range(xMinPos, xMaxpos);
 
     }*/
+
+
 }
