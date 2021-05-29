@@ -55,7 +55,6 @@ public class GameController : MonoBehaviour
         obj_pos.z += 30f;
         obj_pos.x = Random.Range(xMinPos, xMaxpos);
 
-
         time += Time.deltaTime;
 
         //ê∂ê¨éûä‘Ç…Ç»ÇÈÇ∆
@@ -64,20 +63,12 @@ public class GameController : MonoBehaviour
             GameObject enemy = Instantiate(obj);
             //Debug.Log(enemy);
             enemy.transform.position = obj_pos;
-            time = 0f;
+            time = 0f;         
+
         }
 
-        
-     
 
     }
-
-  
-
-
-
-
-
     void Shuffle(GameObject[] num)
     {
         for(int i=0;i<num.Length;i++)

@@ -26,6 +26,17 @@ public class Player : MonoBehaviour
 
     string sceneName;
 
+    public int rescount=0;
+    public Text restext;
+
+    public float skillcount;
+
+    public float nowskill;
+    public Text Skill;
+    public Text Skill2;
+    public bool skill2 = false;
+        
+
     //bool gameOverselect=false;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +47,8 @@ public class Player : MonoBehaviour
         uiscript = ui.GetComponent<UIManager>();
 
         sceneName = SceneManager.GetActiveScene().name;
+        Skill.gameObject.SetActive(false);
+        Skill2.gameObject.SetActive(false);
 
     }
 
@@ -76,6 +89,8 @@ public class Player : MonoBehaviour
                 SceneManager.LoadScene(sceneName);
             }
         }
+        skillcount += Time.deltaTime;
+        skill();
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -84,6 +99,12 @@ public class Player : MonoBehaviour
             script.heal();
             
         }
+
+        if(other.gameObject.tag=="respawn")
+        {
+            rescount += 1;
+            restext.text = "™:" + rescount.ToString("f1");
+        }
        
     }
 
@@ -91,18 +112,41 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "obstacle")
         {
-            gameover.gameObject.SetActive(true);
+            if(skill2==true)
+            {
+                Destroy(collision.gameObject);
+                Invoke("stopSkill2", 5.0f);
+            }
+
+            else if(rescount>=5)
+            {
+                rescount -= 5;
+                Destroy(collision.gameObject);
+                restext.text = "™:" + rescount.ToString("f1");
+            }
+            else
+            {
+                gameover.gameObject.SetActive(true);
+                result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
+                result.gameObject.SetActive(true);
+                Restart.gameObject.SetActive(true);
+                gameOver();
+                uiscript.score = false;
+                script.damageselect = false;
+            }
+            /*gameover.gameObject.SetActive(true);
             result.text ="Score"+ uiscript.scorecounter.ToString("f1") + "M";
             result.gameObject.SetActive(true);
             Restart.gameObject.SetActive(true);
+            */
 
 
 
             //gameOverselect = true;
-            gameOver();
+            /*gameOver();
             uiscript.score = false;
             script.damageselect = false;
-            
+            */
 
             
             //Time.timeScale = 0;
@@ -127,6 +171,60 @@ public class Player : MonoBehaviour
         slidespeed = 0.0f;
         uiscript.scorecounter += 0.0f;
     }
+
+    public void skill()
+    {
+        if(skillcount>=10 && skillcount<20)
+        {
+            Skill.gameObject.SetActive(true);
+            if(Input.GetKey(KeyCode.Z))
+            {
+                Skill.gameObject.SetActive(false);
+                nowskill += Time.deltaTime;
+                speed += 5;
+                Invoke("stopSkill", 5.0f);
+                Debug.Log(speed);
+                
+                skillcount = 0.0f;
+                Debug.Log(skillcount);
+                //if(nowskill>=5.0f)
+                //{
+                    //speed = -5.0f;
+                    
+                //}
+            }
+           
+        }
+        else if (skillcount >=20)
+        {
+            Skill.gameObject.SetActive(false);
+            Skill2.gameObject.SetActive(true);
+            if(Input.GetKey(KeyCode.Z))
+            {
+                skill2 = true;
+                Skill2.gameObject.SetActive(false);
+                skillcount = 0.0f;
+            }
+        }
+
+    }
+
+    
+
+    public void stopSkill()
+    {
+        speed -= 5.0f;
+    }
+    public void stopSkill2()
+    {
+        skill2 = false;
+    }
+    //private void OnTriggerStay(Collider other)
+    //{
+        //this.gameObject.SetActive(false);
+    //}
+
+
 
 
 
