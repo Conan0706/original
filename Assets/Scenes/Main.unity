@@ -702,6 +702,9 @@ MonoBehaviour:
   Skill: {fileID: 2001276625}
   Skill2: {fileID: 322198567}
   skill2: 0
+  speedup: 0
+  speedupcount: 0
+  speedUPcount: 0
 --- !u!54 &467767462
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1301,15 +1304,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 759605886007303434, guid: 2c5e24aa5c1a0404bac78874511e9db1, type: 3}
   - {fileID: 1910651079715895919, guid: 3d9e20fadd24e47488a0f1c5c81bd818, type: 3}
-  - {fileID: 5060702137507470147, guid: e860ae736f911224c86084df73637e17, type: 3}
-  - {fileID: 8545183547471162695, guid: 3a73c69e7991a50498774ac5d05e9d84, type: 3}
   - {fileID: 1883171300768385207, guid: d41a4ce17a95fe743b09324e64627de0, type: 3}
+  objects2:
+  - {fileID: 1910651079715895919, guid: 3d9e20fadd24e47488a0f1c5c81bd818, type: 3}
+  - {fileID: 1910651079715895919, guid: 3d9e20fadd24e47488a0f1c5c81bd818, type: 3}
+  healthpla:
+  - {fileID: 5060702137507470147, guid: e860ae736f911224c86084df73637e17, type: 3}
+  - {fileID: 9179183771816462760, guid: 7d32c570ad6bf09439e519925268eebb, type: 3}
+  - {fileID: 759605886007303434, guid: 2c5e24aa5c1a0404bac78874511e9db1, type: 3}
   player: {fileID: 0}
   player_pos: {x: 0, y: 0, z: 0}
   xMinPos: 6
   xMaxpos: -6
+  script: {fileID: 0}
 --- !u!4 &1276258892
 Transform:
   m_ObjectHideFlags: 0

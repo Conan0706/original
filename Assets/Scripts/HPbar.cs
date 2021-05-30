@@ -116,6 +116,9 @@ public class HPbar : MonoBehaviour
             script.gameOver();
             damageselect = false;
             uiscript.score = false;
+            script.Skill.gameObject.SetActive(false);
+            script.Skill2.gameObject.SetActive(false);
+            script.skill2 = false;
 
             
             //player.GetComponent<Player>().enabled = false;

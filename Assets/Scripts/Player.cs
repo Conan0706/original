@@ -33,8 +33,14 @@ public class Player : MonoBehaviour
 
     public float nowskill;
     public Text Skill;
+    
     public Text Skill2;
     public bool skill2 = false;
+
+    public bool speedup = false;
+    public float speedupcount;
+    public int speedUPcount=0;
+    public float objspeed=0.0f;
         
 
     //bool gameOverselect=false;
@@ -50,6 +56,8 @@ public class Player : MonoBehaviour
         Skill.gameObject.SetActive(false);
         Skill2.gameObject.SetActive(false);
 
+        StartCoroutine("Speedup");
+        
     }
 
     // Update is called once per frame
@@ -91,12 +99,18 @@ public class Player : MonoBehaviour
         }
         skillcount += Time.deltaTime;
         skill();
+
+        //speedup = true;
+        //speedupcount += Time.deltaTime;
+
+        
     }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "health")
         {
             script.heal();
+            Destroy(other.gameObject);
             
         }
 
@@ -104,6 +118,7 @@ public class Player : MonoBehaviour
         {
             rescount += 1;
             restext.text = "Åô:" + rescount.ToString("f1");
+            Destroy(other.gameObject);
         }
        
     }
@@ -133,20 +148,13 @@ public class Player : MonoBehaviour
                 gameOver();
                 uiscript.score = false;
                 script.damageselect = false;
+                Skill.gameObject.SetActive(false);
+                Skill2.gameObject.SetActive(false);
+                
+                skill2 = false;
+                
             }
-            /*gameover.gameObject.SetActive(true);
-            result.text ="Score"+ uiscript.scorecounter.ToString("f1") + "M";
-            result.gameObject.SetActive(true);
-            Restart.gameObject.SetActive(true);
-            */
-
-
-
-            //gameOverselect = true;
-            /*gameOver();
-            uiscript.score = false;
-            script.damageselect = false;
-            */
+            
 
             
             //Time.timeScale = 0;
@@ -157,6 +165,30 @@ public class Player : MonoBehaviour
                 changeScene();
             }
         }
+    }
+    private IEnumerator Speedup()
+    {
+        
+        while(true)
+        {
+            speed += 2.0f;
+            Debug.Log("speedup");
+            speedupcount = 0.0f;
+            speedup = false;
+
+            speedUPcount += 1;
+            if(objspeed<=5.0f)
+            {
+                objspeed += 1.0f;
+            }
+            
+
+
+            yield return new WaitForSeconds(30.0f);
+        }
+        //speed += 2.0f;
+        //Debug.Log("speedup");
+        //yield return new WaitForSeconds(30.0f);
     }
 
     public void changeScene()
@@ -177,26 +209,23 @@ public class Player : MonoBehaviour
         if(skillcount>=10 && skillcount<20)
         {
             Skill.gameObject.SetActive(true);
-            if(Input.GetKey(KeyCode.Z))
+            if (Input.GetKey(KeyCode.Z) && speed!=0.0f)
             {
+               
                 Skill.gameObject.SetActive(false);
                 nowskill += Time.deltaTime;
                 speed += 5;
                 Invoke("stopSkill", 5.0f);
-                Debug.Log(speed);
+                
                 
                 skillcount = 0.0f;
-                Debug.Log(skillcount);
-                //if(nowskill>=5.0f)
-                //{
-                    //speed = -5.0f;
-                    
-                //}
+               
             }
            
         }
         else if (skillcount >=20)
         {
+            
             Skill.gameObject.SetActive(false);
             Skill2.gameObject.SetActive(true);
             if(Input.GetKey(KeyCode.Z))
@@ -208,6 +237,8 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    
 
     
 
