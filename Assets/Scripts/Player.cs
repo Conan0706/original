@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     public int rescount=0;
     public Text restext;
 
+    
+
     public float skillcount;
 
     public float nowskill;
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
     public float speedupcount;
     public int speedUPcount=0;
     public float objspeed=0.0f;
+
         
 
     //bool gameOverselect=false;
@@ -57,7 +60,8 @@ public class Player : MonoBehaviour
         Skill2.gameObject.SetActive(false);
 
         StartCoroutine("Speedup");
-        
+
+       //PlayerPrefs.GetFloat("SCORE", 0);
     }
 
     // Update is called once per frame
@@ -100,8 +104,11 @@ public class Player : MonoBehaviour
         skillcount += Time.deltaTime;
         skill();
 
-        //speedup = true;
-        //speedupcount += Time.deltaTime;
+      
+
+        
+
+      
 
         
     }
@@ -153,6 +160,18 @@ public class Player : MonoBehaviour
                 
                 skill2 = false;
                 
+
+
+
+                /*if(uiscript.nowscore>uiscript.best)
+                {
+                    uiscript.best = uiscript.nowscore;
+                }
+                uiscript.Bestscore.text = "BestScore" + uiscript.best.ToString("f1") + "M";
+                uiscript.Bestscore.gameObject.SetActive(true);
+                PlayerPrefs.SetFloat("SCORE", uiscript.best);
+                */
+
             }
             
 
@@ -186,9 +205,7 @@ public class Player : MonoBehaviour
 
             yield return new WaitForSeconds(30.0f);
         }
-        //speed += 2.0f;
-        //Debug.Log("speedup");
-        //yield return new WaitForSeconds(30.0f);
+       
     }
 
     public void changeScene()
@@ -250,13 +267,5 @@ public class Player : MonoBehaviour
     {
         skill2 = false;
     }
-    //private void OnTriggerStay(Collider other)
-    //{
-        //this.gameObject.SetActive(false);
-    //}
-
-
-
-
 
 }

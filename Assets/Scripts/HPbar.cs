@@ -50,13 +50,11 @@ public class HPbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*damage = Time.deltaTime*1.0f;
-
-        currentHP -= damage;
+       
 
         //Slider‚É”½‰f
         slider.value =currentHP / maxHP; ;
-        */
+        
         Damage();
 
         if (Result.gameObject == true)
@@ -90,21 +88,7 @@ public class HPbar : MonoBehaviour
         {
             damage = 0.0f;
         }
-        //damage = Time.deltaTime * 1.0f;
-        
-        
-        
-
-        //currentHP -= damage;
-
        
-
-        //Slider‚É”½‰f
-        //slider.value = currentHP / maxHP; 
-
-        
-        
-        //damage = 0;
         
 
         if (currentHP <= 0)
@@ -120,8 +104,6 @@ public class HPbar : MonoBehaviour
             script.Skill2.gameObject.SetActive(false);
             script.skill2 = false;
 
-            
-            //player.GetComponent<Player>().enabled = false;
 
         }
         

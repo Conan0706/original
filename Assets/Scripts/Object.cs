@@ -15,7 +15,7 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position -= new Vector3(0, 0, speed) * Time.deltaTime;
+        
         transform.position = new Vector3(Mathf.Sin(Time.time) * 3.0f + targetpos.x, targetpos.y, targetpos.z);
     }
 

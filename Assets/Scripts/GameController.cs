@@ -118,10 +118,9 @@ public class GameController : MonoBehaviour
             if (time > interval)
             {
                 GameObject enemy = Instantiate(obj);
-                //GameObject enemy2 = Instantiate(obj2);
-                //Debug.Log(enemy);
+                
                 enemy.transform.position = obj_pos;
-                //enemy2.transform.position = obj2_pos;
+
                 time = 0f;
 
             }
@@ -140,7 +139,7 @@ public class GameController : MonoBehaviour
         }
 
 
-            //}
+           
 
 
     }
@@ -160,17 +159,7 @@ public class GameController : MonoBehaviour
         }
         void shuffle(GameObject[] sec)
         {
-            /*time2 += Time.deltaTime;
-            if (time2 > interval3)
-            {
-            GameObject enemy2 = Instantiate(obj2);
-            enemy2.transform.position = obj2_pos;
-            time2 = 0f;
-            
-
-
-            }
-            */
+           
         
             for (int i = 0; i < sec.Length; i++)
             {
