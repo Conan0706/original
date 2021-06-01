@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     public float best = 0.0f;
     public float nowscore=0.0f;
     public Text Bestscore;
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
@@ -42,18 +42,20 @@ public class UIManager : MonoBehaviour
         {
             
             scorecounter += 0.0f;
-            if(best>=scorecounter)
-            {
-                Bestscore.text = "BestScore" + best.ToString("f1") + "M";
+            //if(best>=scorecounter)
+            //{
+                Bestscore.text = "BestScore" + scorecounter.ToString("f1") + "M";
                 Bestscore.gameObject.SetActive(true);
-                PlayerPrefs.SetFloat("SCORE", best);
-            }
-            else if(best<scorecounter)
+                //PlayerPrefs.SetFloat("SCORE", best);
+            //}
+            if(best<scorecounter)
             {
                 best = scorecounter;
+                Debug.Log(best);
                 Bestscore.text = "BestScore" + best.ToString("f1") + "M";
                 Bestscore.gameObject.SetActive(true);
                 PlayerPrefs.SetFloat("SCORE", best);
+                PlayerPrefs.Save();
             }
             /*if(nowscore>best)
             {

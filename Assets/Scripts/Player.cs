@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
     public int speedUPcount=0;
     public float objspeed=0.0f;
 
+    public int test1;
+    public int test2;
+
         
 
     //bool gameOverselect=false;
@@ -61,7 +64,10 @@ public class Player : MonoBehaviour
 
         StartCoroutine("Speedup");
 
-       //PlayerPrefs.GetFloat("SCORE", 0);
+        int test1 = LayerMask.NameToLayer("Player");
+        int test2 = LayerMask.NameToLayer("Obstacle");
+
+        //PlayerPrefs.GetFloat("SCORE", 0);
     }
 
     // Update is called once per frame
@@ -255,9 +261,16 @@ public class Player : MonoBehaviour
 
     }
 
-    
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag=="obstacle")
+        {
+            Physics.IgnoreLayerCollision(test1, test2);
+        }
+    }
 
-    
+
+
 
     public void stopSkill()
     {

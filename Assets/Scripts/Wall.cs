@@ -20,8 +20,13 @@ public class Wall : MonoBehaviour
         chspeed = script.speed;
         transform.position += new Vector3(0, 0, chspeed) * Time.deltaTime;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(collision.gameObject);
+        if(collision.gameObject.tag!="Stage")
+        {
+            Destroy(collision.gameObject);
+        }
+        
     }
 }
