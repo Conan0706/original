@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
 
     public bool score = true;
 
-    public float best = 0.0f;
+    public float best;
     public float nowscore=0.0f;
     public Text Bestscore;
     //Start is called before the first frame update
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         script = player.GetComponent<Player>();
-        PlayerPrefs.GetFloat("SCORE", 0);
+        best=PlayerPrefs.GetFloat("SCORE");
 
     }
 
@@ -42,34 +42,33 @@ public class UIManager : MonoBehaviour
         {
             
             scorecounter += 0.0f;
-            //if(best>=scorecounter)
-            //{
-                Bestscore.text = "BestScore" + scorecounter.ToString("f1") + "M";
-                Bestscore.gameObject.SetActive(true);
-                //PlayerPrefs.SetFloat("SCORE", best);
-            //}
-            if(best<scorecounter)
-            {
-                best = scorecounter;
-                Debug.Log(best);
-                Bestscore.text = "BestScore" + best.ToString("f1") + "M";
-                Bestscore.gameObject.SetActive(true);
-                PlayerPrefs.SetFloat("SCORE", best);
-                PlayerPrefs.Save();
-            }
-            /*if(nowscore>best)
-            {
-                best = nowscore;
-                Bestscore.text = "BestScore" + best.ToString("f1") + "M";
-                Bestscore.gameObject.SetActive(true);
-                PlayerPrefs.SetFloat("SCORE", best);
-            }
-            */
+           
         }
       
        
 
         
+    }
+
+    public void Best()
+    {
+        if (best < scorecounter)
+        {
+            Debug.Log("AAA");
+            best = scorecounter;
+            Debug.Log(best);
+            Bestscore.text = "BestScore" + best.ToString("f1") + "M";
+            Bestscore.gameObject.SetActive(true);
+            PlayerPrefs.SetFloat("SCORE", best);
+            PlayerPrefs.Save();
+        }
+
+        else
+        {
+            Bestscore.text = "BestScore" + best.ToString("f1") + "M";
+            Bestscore.gameObject.SetActive(true);
+
+        }
     }
 
    

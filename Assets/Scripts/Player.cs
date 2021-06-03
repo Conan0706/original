@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     public int test1;
     public int test2;
 
+    private bool safezone=true;
         
 
     //bool gameOverselect=false;
@@ -140,49 +141,47 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "obstacle")
         {
-            if(skill2==true)
+            if(safezone==true)
             {
-                Destroy(collision.gameObject);
-                Invoke("stopSkill2", 5.0f);
-            }
-
-            else if(rescount>=5)
-            {
-                rescount -= 5;
-                Destroy(collision.gameObject);
-                restext.text = "Åô:" + rescount.ToString("f1");
-            }
-            else
-            {
-                gameover.gameObject.SetActive(true);
-                result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
-                result.gameObject.SetActive(true);
-                Restart.gameObject.SetActive(true);
-                gameOver();
-                uiscript.score = false;
-                script.damageselect = false;
-                Skill.gameObject.SetActive(false);
-                Skill2.gameObject.SetActive(false);
-                
-                skill2 = false;
-                
-
-
-
-                /*if(uiscript.nowscore>uiscript.best)
+                if (skill2 == true)
                 {
-                    uiscript.best = uiscript.nowscore;
+                    Destroy(collision.gameObject);
+                    Invoke("stopSkill2", 5.0f);
                 }
-                uiscript.Bestscore.text = "BestScore" + uiscript.best.ToString("f1") + "M";
-                uiscript.Bestscore.gameObject.SetActive(true);
-                PlayerPrefs.SetFloat("SCORE", uiscript.best);
-                */
 
+                else if (rescount >= 5)
+                {
+                    rescount -= 5;
+                    Destroy(collision.gameObject);
+                    restext.text = "Åô:" + rescount.ToString("f1");
+                }
+                else
+                {
+                    gameover.gameObject.SetActive(true);
+                    result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
+                    result.gameObject.SetActive(true);
+                    Restart.gameObject.SetActive(true);
+                    gameOver();
+                    uiscript.score = false;
+                    uiscript.Best();
+                    script.damageselect = false;
+                    Skill.gameObject.SetActive(false);
+                    Skill2.gameObject.SetActive(false);
+
+                    skill2 = false;
+
+
+
+
+                    
+
+                }
             }
             
+            
 
             
-            //Time.timeScale = 0;
+            
             
             script.stopdamage();
             if(Input.GetKeyDown("space"))
@@ -261,13 +260,23 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if(collision.gameObject.tag=="obstacle")
+        if (other.gameObject.tag == "SAFEZONE")
+
         {
-            Physics.IgnoreLayerCollision(test1, test2);
+            safezone = false;
+            Debug.Log("safeon");
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        safezone = true;
+        Debug.Log("safeoff");
+    }
+
+
 
 
 
