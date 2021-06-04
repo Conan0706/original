@@ -155,6 +155,14 @@ public class Player : MonoBehaviour
                     Destroy(collision.gameObject);
                     restext.text = "Åô:" + rescount.ToString("f1");
                 }
+
+                else if(safezone==false)
+                {
+                    Destroy(collision.gameObject);
+                }
+                    
+
+                
                 else
                 {
                     gameover.gameObject.SetActive(true);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    const int StageTipSize = 30;
+    const int StageTipSize = 60;
     int currentTipIndex;
 
     //ターゲットキャラの指定
@@ -48,14 +48,14 @@ public class Stage : MonoBehaviour
     {
         if (toTipIndex <= currentTipIndex) return;
         //指定のステージチップまで生成するよ
-        for (int i = currentTipIndex + 1; i <= toTipIndex; i++)
+        for (int i = currentTipIndex ; i <= toTipIndex; i++)
         {
             GameObject stageObject = GenerateStage(i);
             //生成したステージチップを管理リストに追加して、
             generatedStageList.Add(stageObject);
         }
         //ステージ保持上限になるまで古いステージを削除します。
-        while (generatedStageList.Count > preInstantiate + 2) DestroyOldestStage();
+        while (generatedStageList.Count > preInstantiate + 5) DestroyOldestStage();
 
         currentTipIndex = toTipIndex;
     }
