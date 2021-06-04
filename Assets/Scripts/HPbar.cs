@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class HPbar : MonoBehaviour
 {
-    public float maxHP = 50;
+    public float maxHP = 30;
     public float currentHP;
     public Slider slider;
     public float damage;
@@ -93,16 +93,26 @@ public class HPbar : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            gameOver.gameObject.SetActive(true);
-            Result.text = "Score"+uiscript.scorecounter.ToString("f1")+"M";
-            Result.gameObject.SetActive(true);
-            Restart.gameObject.SetActive(true);
-            script.gameOver();
-            damageselect = false;
-            uiscript.score = false;
-            script.Skill.gameObject.SetActive(false);
-            script.Skill2.gameObject.SetActive(false);
-            script.skill2 = false;
+            if(script.rescount>=5)
+            {
+                script.rescount -= 5;
+                script.restext.text = "Åô:" + script.rescount.ToString("f1");
+                currentHP += 15.0f;
+            }
+            else
+            {
+                gameOver.gameObject.SetActive(true);
+                Result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
+                Result.gameObject.SetActive(true);
+                Restart.gameObject.SetActive(true);
+                script.gameOver();
+                damageselect = false;
+                uiscript.score = false;
+                script.Skill.gameObject.SetActive(false);
+                script.Skill2.gameObject.SetActive(false);
+                script.skill2 = false;
+            }
+            
 
 
         }

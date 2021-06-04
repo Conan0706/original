@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class UIManager : MonoBehaviour
 
     public bool score = true;
 
-    public float best;
+    public static float  best;
     public float nowscore=0.0f;
     public Text Bestscore;
+
+    public Text StartScene;
     //Start is called before the first frame update
     void Start()
     {
@@ -40,8 +43,14 @@ public class UIManager : MonoBehaviour
         }
         else if(score==false)
         {
-            
+            StartScene.gameObject.SetActive(true);
+
             scorecounter += 0.0f;
+            if(Input.GetKey(KeyCode.Return))
+            {
+                SceneManager.LoadScene("Start");
+                
+            }
            
         }
       
@@ -54,7 +63,7 @@ public class UIManager : MonoBehaviour
     {
         if (best < scorecounter)
         {
-            Debug.Log("AAA");
+            
             best = scorecounter;
             Debug.Log(best);
             Bestscore.text = "BestScore" + best.ToString("f1") + "M";

@@ -12,6 +12,7 @@ TagManager:
   - respawn
   - SAFEZONE
   - Stage
+  - Chaser
   layers:
   - Default
   - TransparentFX

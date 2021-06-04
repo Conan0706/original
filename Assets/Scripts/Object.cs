@@ -19,6 +19,4 @@ public class Object : MonoBehaviour
         transform.position = new Vector3(Mathf.Sin(Time.time) * 3.0f + targetpos.x, targetpos.y, targetpos.z);
     }
 
-    
-    
 }
