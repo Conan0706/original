@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public float speed = 10.0f;
     public float slidespeed = 100.0f;
+    public float pos_x;
 
     GameObject hp;
     GameObject ui;
@@ -83,7 +84,7 @@ public class Player : MonoBehaviour
         //transform.position +=new Vector3(0,0,0)*Time.deltaTime;
 
         //åªç›ÇÃXé≤éÊìæ
-        float pos_x = transform.position.x;
+        pos_x = transform.position.x;
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
