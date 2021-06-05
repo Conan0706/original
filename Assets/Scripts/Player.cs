@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
                     restext.text = "Åô:" + rescount.ToString("f1");
                 }
 
-                else if(safezone==false)
+            else if(safezone==false)
                 {
                     Destroy(collision.gameObject);
                 }
@@ -274,7 +274,7 @@ public class Player : MonoBehaviour
 
         {
             safezone = false;
-            Debug.Log("safeon");
+            Debug.Log(safezone);
         }
     }
 

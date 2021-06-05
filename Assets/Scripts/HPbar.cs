@@ -121,7 +121,7 @@ public class HPbar : MonoBehaviour
 
     public void heal()
     {
-        currentHP += 15.0f;
+        currentHP += 10.0f;
         if(currentHP>50.0f)
         {
             currentHP = 50.0f;
