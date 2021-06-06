@@ -906,6 +906,7 @@ MonoBehaviour:
   test1: 0
   test2: 0
   heal: {fileID: 8300000, guid: eeef851206624ab499006dacc2375449, type: 3}
+  get: {fileID: 8300000, guid: 2a2ca35347a127443aebf5ddd5f0b8c3, type: 3}
 --- !u!54 &467767462
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1028,7 +1029,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 194a441678b09184c82a785909964e6d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2a2ca35347a127443aebf5ddd5f0b8c3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

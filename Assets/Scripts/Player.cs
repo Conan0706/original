@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
 
     AudioSource audioSourse;
     public AudioClip heal;
-    public AudioClip get;
         
 
     //bool gameOverselect=false;
