@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     AudioSource audioSourse;
     public AudioClip heal;
+    public AudioClip get;
         
 
     //bool gameOverselect=false;
@@ -141,6 +142,7 @@ public class Player : MonoBehaviour
             rescount += 1;
             restext.text = "Åô:" + rescount.ToString("f1");
             Destroy(other.gameObject);
+            audioSourse.PlayOneShot(get);
         }
        
     }
