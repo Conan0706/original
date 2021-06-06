@@ -109,6 +109,8 @@ public class GameController : MonoBehaviour
             healthobj_pos = player_pos;
             healthobj_pos.z += 30f;
             healthobj_pos.x = Random.Range(xMinPos, xMaxpos);
+        healthobj_pos.y = 1.0f;
+        
 
             time += Time.deltaTime;
             heal_time += Time.deltaTime;
