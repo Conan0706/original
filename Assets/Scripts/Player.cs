@@ -49,12 +49,17 @@ public class Player : MonoBehaviour
     public int test2;
 
     private bool safezone=true;
+
+    AudioSource audioSourse;
+    public AudioClip heal;
         
 
     //bool gameOverselect=false;
     // Start is called before the first frame update
     void Start()
     {
+
+        audioSourse = GetComponent<AudioSource>();
         hp = GameObject.Find("HPbar");
         script = hp.GetComponent<HPbar>();
         ui = GameObject.Find("Canvas");
@@ -69,6 +74,7 @@ public class Player : MonoBehaviour
         int test1 = LayerMask.NameToLayer("Player");
         int test2 = LayerMask.NameToLayer("Obstacle");
 
+       
         //PlayerPrefs.GetFloat("SCORE", 0);
     }
 
@@ -126,6 +132,7 @@ public class Player : MonoBehaviour
         {
             script.heal();
             Destroy(other.gameObject);
+            audioSourse.PlayOneShot(heal);
             
         }
 
