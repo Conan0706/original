@@ -53,8 +53,11 @@ public class Player : MonoBehaviour
     AudioSource audioSourse;
     public AudioClip heal;
     public AudioClip get;
-        
 
+    private Animator anim;
+    GameObject anime;
+
+    public bool nowgaming;
     //bool gameOverselect=false;
     // Start is called before the first frame update
     void Start()
@@ -75,7 +78,12 @@ public class Player : MonoBehaviour
         int test1 = LayerMask.NameToLayer("Player");
         int test2 = LayerMask.NameToLayer("Obstacle");
 
-       
+        
+        anime = GameObject.Find("dreyar_m_aure");
+        anim = anime.GetComponent<Animator>();
+
+        nowgaming = true;
+
         //PlayerPrefs.GetFloat("SCORE", 0);
     }
 
@@ -188,6 +196,10 @@ public class Player : MonoBehaviour
 
                     skill2 = false;
 
+
+                    anim.SetBool("Dead", true);
+
+                    nowgaming = false;
 
 
 
