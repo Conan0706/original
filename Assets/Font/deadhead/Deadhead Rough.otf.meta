@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 89bc4919eb3dc664bb5b00ee275f57a4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Deadhead Rough
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a501e01d8d7917940bd247b386296de5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

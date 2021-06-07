@@ -102,7 +102,7 @@ public class HPbar : MonoBehaviour
             else
             {
                 gameOver.gameObject.SetActive(true);
-                Result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
+                Result.text = "Score " + uiscript.scorecounter.ToString("f1") + " "+"M";
                 Result.gameObject.SetActive(true);
                 Restart.gameObject.SetActive(true);
                 script.gameOver();

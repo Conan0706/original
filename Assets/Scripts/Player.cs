@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     AudioSource audioSourse;
     public AudioClip heal;
+    public AudioClip get;
         
 
     //bool gameOverselect=false;
@@ -174,7 +175,7 @@ public class Player : MonoBehaviour
                 
                 else
                 {
-                    gameover.gameObject.SetActive(true);
+                    //gameover.gameObject.SetActive(true);
                     result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
                     result.gameObject.SetActive(true);
                     Restart.gameObject.SetActive(true);
