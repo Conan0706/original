@@ -867,6 +867,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   - {fileID: 306043841}
+  - {fileID: 698514143}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -907,6 +908,7 @@ MonoBehaviour:
   test2: 0
   heal: {fileID: 8300000, guid: eeef851206624ab499006dacc2375449, type: 3}
   get: {fileID: 8300000, guid: 2a2ca35347a127443aebf5ddd5f0b8c3, type: 3}
+  nowgaming: 0
 --- !u!54 &467767462
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1421,8 +1423,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698514142}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.812134, y: 8.696635, z: -23.097061}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.812134, y: 8.196635, z: -1.4470615}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1784472789}
@@ -1431,8 +1433,8 @@ Transform:
   - {fileID: 1105381654}
   - {fileID: 318618666}
   - {fileID: 75112546}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 467767460}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -3201,7 +3203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 549418363464060826, guid: d41a4ce17a95fe743b09324e64627de0, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 549418363464060826, guid: d41a4ce17a95fe743b09324e64627de0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3320,6 +3322,10 @@ PrefabInstance:
     - target: {fileID: 3620746294690226350, guid: 2ab54c0dc4e0dc84588c452b85469406, type: 3}
       propertyPath: m_Name
       value: Chaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3620746294690226351, guid: 2ab54c0dc4e0dc84588c452b85469406, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ab54c0dc4e0dc84588c452b85469406, type: 3}
