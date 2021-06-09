@@ -66,6 +66,9 @@ public class Player : MonoBehaviour
     public GameObject particle2;
 
     private Vector3 particle_pos;
+
+    public GameObject speedpar;
+    public GameObject mutekipar;
     //bool gameOverselect=false;
     // Start is called before the first frame update
     void Start()
@@ -95,6 +98,8 @@ public class Player : MonoBehaviour
         anim = anime.GetComponent<Animator>();
 
         nowgaming = true;
+
+       
 
         //PlayerPrefs.GetFloat("SCORE", 0);
     }
@@ -284,6 +289,8 @@ public class Player : MonoBehaviour
             Skill.gameObject.SetActive(true);
             if (Input.GetKey(KeyCode.Z) && speed!=0.0f)
             {
+
+                speedpar.gameObject.SetActive(true);
                
                 Skill.gameObject.SetActive(false);
                 nowskill += Time.deltaTime;
@@ -306,6 +313,7 @@ public class Player : MonoBehaviour
                 skill2 = true;
                 Skill2.gameObject.SetActive(false);
                 skillcount = 0.0f;
+                mutekipar.gameObject.SetActive(true);
             }
         }
 
@@ -335,10 +343,12 @@ public class Player : MonoBehaviour
     public void stopSkill()
     {
         speed -= 5.0f;
+        speedpar.gameObject.SetActive(false);
     }
     public void stopSkill2()
     {
         skill2 = false;
+        mutekipar.gameObject.SetActive(false);
     }
 
 }
