@@ -54,7 +54,11 @@ public class GameController : MonoBehaviour
 
     public float objspeedup = 2.0f;
 
+    public GameObject particle;
+    public GameObject particle2;
 
+    private Vector3 particle_pos;
+    private Vector3 particle_pos2;
     // Start is called before the first frame update
     void Start()
     {
@@ -120,17 +124,33 @@ public class GameController : MonoBehaviour
             if (time > interval)
             {
                 GameObject enemy = Instantiate(obj);
+
                 
+    
                 enemy.transform.position = obj_pos;
 
                 time = 0f;
+                
+
 
             }
             if (heal_time > interval2)
             {
                 GameObject healthIns = Instantiate(health);
                 healthIns.transform.position = healthobj_pos;
-                heal_time = 0f;
+                if (health.tag == "health")
+                {
+                    
+                    particle_pos = healthobj_pos;
+                    Instantiate(particle, particle_pos, Quaternion.identity);
+                }
+                if (health.tag == "respawn")
+                {
+                    
+                    particle_pos2 = healthobj_pos;
+                    Instantiate(particle2, particle_pos2, Quaternion.identity);
+                }
+            heal_time = 0f;
                 Debug.Log("a");
             }
         if (time2 > interval3 && objon==true)

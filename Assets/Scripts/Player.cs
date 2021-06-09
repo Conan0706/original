@@ -12,9 +12,12 @@ public class Player : MonoBehaviour
 
     GameObject hp;
     GameObject ui;
+    GameObject par1;
+    
    
     public HPbar script;
     public UIManager uiscript;
+    public GameController gamescript;
     
     //public float healthHP;
     public float playerHp;
@@ -73,6 +76,10 @@ public class Player : MonoBehaviour
         script = hp.GetComponent<HPbar>();
         ui = GameObject.Find("Canvas");
         uiscript = ui.GetComponent<UIManager>();
+
+        par1 = GameObject.Find("GaneManager");
+        gamescript = par1.GetComponent<GameController>();
+
 
         sceneName = SceneManager.GetActiveScene().name;
         Skill.gameObject.SetActive(false);
@@ -151,6 +158,7 @@ public class Player : MonoBehaviour
             particle_pos = this.transform.position;
             particle_pos.z += 2;
             Instantiate(particle, particle_pos, Quaternion.identity);
+            //Destroy(gamescript.particle);
 
         }
 
@@ -163,6 +171,7 @@ public class Player : MonoBehaviour
             Instantiate(particle2, particle_pos, Quaternion.identity);
             Destroy(other.gameObject);
             audioSourse.PlayOneShot(get);
+            //Destroy(gamescript.particle2);
         }
        
     }
@@ -238,7 +247,7 @@ public class Player : MonoBehaviour
         while(true)
         {
             speed += 2.0f;
-            Debug.Log("speedup");
+            //Debug.Log("speedup");
             speedupcount = 0.0f;
             speedup = false;
 
