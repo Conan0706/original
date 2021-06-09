@@ -121,7 +121,7 @@ public class GameController : MonoBehaviour
             time2 += Time.deltaTime;
 
             //¶¬ŽžŠÔ‚É‚È‚é‚Æ
-            if (time > interval)
+            if (time > interval && script.nowgaming==true)
             {
                 GameObject enemy = Instantiate(obj);
 
@@ -134,7 +134,7 @@ public class GameController : MonoBehaviour
 
 
             }
-            if (heal_time > interval2)
+            if (heal_time > interval2 && script.nowgaming==true)
             {
                 GameObject healthIns = Instantiate(health);
                 healthIns.transform.position = healthobj_pos;

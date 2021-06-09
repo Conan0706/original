@@ -115,6 +115,8 @@ public class HPbar : MonoBehaviour
                 script.Skill.gameObject.SetActive(false);
                 script.Skill2.gameObject.SetActive(false);
                 script.skill2 = false;
+                script.nowgaming = false;
+                script.anim.SetBool("Dead", true);
             }
             
 

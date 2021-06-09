@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     public AudioClip heal;
     public AudioClip get;
 
-    private Animator anim;
+    public Animator anim;
     GameObject anime;
 
     public bool nowgaming;
