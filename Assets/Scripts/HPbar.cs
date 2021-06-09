@@ -28,6 +28,8 @@ public class HPbar : MonoBehaviour
 
     string sceneName;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,9 @@ public class HPbar : MonoBehaviour
 
         sceneName = SceneManager.GetActiveScene().name;
 
+        
+
+
 
 
     }
@@ -50,7 +55,6 @@ public class HPbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
         //Slider‚É”½‰f
         slider.value =currentHP / maxHP; ;
@@ -119,7 +123,12 @@ public class HPbar : MonoBehaviour
         
     }
 
-    public void heal()
+    
+
+   
+
+
+        public void heal()
     {
         currentHP += 10.0f;
         if(currentHP>50.0f)

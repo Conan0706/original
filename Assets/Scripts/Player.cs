@@ -58,6 +58,11 @@ public class Player : MonoBehaviour
     GameObject anime;
 
     public bool nowgaming;
+
+    public GameObject particle;
+    public GameObject particle2;
+
+    private Vector3 particle_pos;
     //bool gameOverselect=false;
     // Start is called before the first frame update
     void Start()
@@ -139,16 +144,23 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "health")
         {
+
             script.heal();
             Destroy(other.gameObject);
             audioSourse.PlayOneShot(heal);
-            
+            particle_pos = this.transform.position;
+            particle_pos.z += 2;
+            Instantiate(particle, particle_pos, Quaternion.identity);
+
         }
 
         if(other.gameObject.tag=="respawn")
         {
             rescount += 1;
             restext.text = "Åô:" + rescount.ToString("f1");
+            particle_pos = transform.position;
+            particle_pos.z += 2;
+            Instantiate(particle2, particle_pos, Quaternion.identity);
             Destroy(other.gameObject);
             audioSourse.PlayOneShot(get);
         }

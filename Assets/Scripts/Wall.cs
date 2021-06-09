@@ -12,7 +12,7 @@ public class Wall : MonoBehaviour
     GameObject anime;
     public float pos_x;
     public float playerpos_x;
-    float distance = 0.0f;
+    //float distance = 0.0f;
     // Start is called before the first frame update
     void Start()
     {

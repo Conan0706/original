@@ -112,6 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 0}
   chspeed: 0
+  slide: 20
+  pos_x: 0
+  playerpos_x: 0
 --- !u!54 &-4774415250473549318
 Rigidbody:
   m_ObjectHideFlags: 0
