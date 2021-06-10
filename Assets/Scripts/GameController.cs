@@ -218,19 +218,7 @@ public class GameController : MonoBehaviour
 
 
 
-        /*void PlayerPos()
-        {
-            player_pos = player.transform.position;
-
-            obj_pos = player_pos;
-            obj_pos.z -= 10f;
-
-        }*/
-        /*public void Random_x_pos()
-        {
-            float x = Random.Range(xMinPos, xMaxpos);
-
-        }*/
+      
 
 
 
