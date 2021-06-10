@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    const int StageTipSize = 60;
+    const float StageTipSize = 62.0f;
     int currentTipIndex;
 
     //ターゲットキャラの指定

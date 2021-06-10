@@ -38,9 +38,9 @@ public class Player : MonoBehaviour
     public float skillcount;
 
     public float nowskill;
-    public Text Skill;
+    public Image Skill;
     
-    public Text Skill2;
+    public Image Skill2;
     public bool skill2 = false;
 
     public bool speedup = false;
