@@ -51,11 +51,12 @@ public class Player : MonoBehaviour
     public int test1;
     public int test2;
 
-    private bool safezone=true;
+    private bool safezone=false;
 
     AudioSource audioSourse;
     public AudioClip heal;
     public AudioClip get;
+
 
     public Animator anim;
     GameObject anime;
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
 
     public GameObject particle;
     public GameObject particle2;
+    
 
     private Vector3 particle_pos;
 
@@ -185,7 +187,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "obstacle")
         {
-            if(safezone==true)
+            if(safezone==false)
             {
                 if (skill2 == true)
                 {
@@ -200,7 +202,7 @@ public class Player : MonoBehaviour
                     restext.text = "Åô:" + rescount.ToString("f1");
                 }
 
-            else if(safezone==false)
+            else if(safezone==true)
                 {
                     Destroy(collision.gameObject);
                 }
@@ -324,14 +326,14 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "SAFEZONE")
 
         {
-            safezone = false;
+            safezone = true;
             Debug.Log(safezone);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        safezone = true;
+        safezone = false;
         Debug.Log("safeoff");
     }
 

@@ -28,8 +28,11 @@ public class HPbar : MonoBehaviour
 
     string sceneName;
 
-    
+    public GameObject particle3;
+    private Vector3 particle_pos;
 
+    AudioSource audiosourse;
+    public AudioClip res;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +105,9 @@ public class HPbar : MonoBehaviour
                 script.rescount -= 5;
                 script.restext.text = "Åô:" + script.rescount.ToString("f1");
                 currentHP += 15.0f;
+                particle_pos = player.transform.position;
+                Instantiate(particle3, particle_pos, Quaternion.identity);
+                audiosourse.PlayOneShot(res);
             }
             else
             {

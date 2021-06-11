@@ -27,13 +27,8 @@ public class SafeZone : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag=="obstacle")
-        {
-            Destroy(other.gameObject);
-        }
-    }
+  
+    
 
 
 

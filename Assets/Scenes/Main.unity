@@ -245,6 +245,8 @@ MonoBehaviour:
   damageselect: 1
   ui: {fileID: 0}
   uiscript: {fileID: 0}
+  particle3: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+  res: {fileID: 8300000, guid: bef503b3b7e7b3946a74f11fe206b345, type: 3}
 --- !u!222 &121254508
 CanvasRenderer:
   m_ObjectHideFlags: 0
