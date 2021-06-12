@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
     AudioSource audioSourse;
     public AudioClip heal;
     public AudioClip get;
+    public AudioClip res;
+
 
 
     public Animator anim;
@@ -65,6 +67,7 @@ public class Player : MonoBehaviour
 
     public GameObject particle;
     public GameObject particle2;
+    public GameObject particle3;
     
 
     private Vector3 particle_pos;
@@ -161,6 +164,7 @@ public class Player : MonoBehaviour
 
             script.heal();
             Destroy(other.gameObject);
+            
             audioSourse.PlayOneShot(heal);
             particle_pos = this.transform.position;
             particle_pos.z += 2;
@@ -179,6 +183,46 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             audioSourse.PlayOneShot(get);
             //Destroy(gamescript.particle2);
+        }
+
+        if(other.gameObject.tag=="obstacle2")
+        {
+            if(skill2 == true)
+                {
+                Destroy(other.gameObject);
+                Invoke("stopSkill2", 5.0f);
+            }
+
+            else if (rescount >= 5)
+            {
+                rescount -= 5;
+                Destroy(other.gameObject);
+                restext.text = "Åô:" + rescount.ToString("f1");
+                particle_pos = this.transform.position;
+                Instantiate(particle3, particle_pos, Quaternion.identity);
+                audioSourse.PlayOneShot(res);
+            }
+
+            else
+            {
+                result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
+                result.gameObject.SetActive(true);
+                Restart.gameObject.SetActive(true);
+                gameOver();
+                uiscript.score = false;
+                uiscript.Best();
+                script.damageselect = false;
+                Skill.gameObject.SetActive(false);
+                Skill2.gameObject.SetActive(false);
+
+                skill2 = false;
+
+
+                anim.SetBool("Dead", true);
+
+                nowgaming = false;
+            }
+            
         }
        
     }
@@ -200,6 +244,9 @@ public class Player : MonoBehaviour
                     rescount -= 5;
                     Destroy(collision.gameObject);
                     restext.text = "Åô:" + rescount.ToString("f1");
+                    particle_pos = this.transform.position;
+                    Instantiate(particle3, particle_pos, Quaternion.identity);
+                    audioSourse.PlayOneShot(res);
                 }
 
             else if(safezone==true)

@@ -138,7 +138,7 @@ public class GameController : MonoBehaviour
             {
                 GameObject healthIns = Instantiate(health);
                 healthIns.transform.position = healthobj_pos;
-                if (health.tag == "health")
+                /*if (health.tag == "health")
                 {
                     
                     particle_pos = healthobj_pos;
@@ -150,6 +150,7 @@ public class GameController : MonoBehaviour
                     particle_pos2 = healthobj_pos;
                     Instantiate(particle2, particle_pos2, Quaternion.identity);
                 }
+                */
             heal_time = 0f;
                 Debug.Log("a");
             }

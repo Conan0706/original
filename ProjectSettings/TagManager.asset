@@ -13,6 +13,8 @@ TagManager:
   - SAFEZONE
   - Stage
   - Chaser
+  - Particle
+  - obstacle2
   layers:
   - Default
   - TransparentFX
