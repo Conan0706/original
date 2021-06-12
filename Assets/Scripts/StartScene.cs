@@ -14,9 +14,15 @@ public class StartScene : MonoBehaviour
  
 
     private bool walk;
+
+    public Animator anim;
+    GameObject anime;
     // Start is called before the first frame update
     void Start()
     {
+        anime = GameObject.Find("dreyar_m_aure");
+        anim = anime.GetComponent<Animator>();
+        
          start= GameObject.Find("Canvas");
          script = start.GetComponent<UIManager>();
         bestscore = PlayerPrefs.GetFloat("SCORE");
@@ -32,10 +38,11 @@ public class StartScene : MonoBehaviour
         {
             walk = true;
             Invoke("change", 2.0f);
+            anim.SetBool("START", true);
         }
         if(walk==true)
         {
-            transform.position += new Vector3(0, 0, 5) * Time.deltaTime;
+            transform.position += new Vector3(0, 0, 8) * Time.deltaTime;
         }
     }
 

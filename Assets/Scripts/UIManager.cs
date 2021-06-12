@@ -33,7 +33,12 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         if(score==true)
-        {
+        { 
+        
+            if(script.nowspeedup==true)
+            {
+                scorecounter += Time.deltaTime * 2.0f;
+            }
             //スコア表示
             scorecounter += Time.deltaTime * 1.5f;
             //scorecounter += 0;
@@ -41,6 +46,7 @@ public class UIManager : MonoBehaviour
             
            
         }
+
         else if(score==false)
         {
             StartScene.gameObject.SetActive(true);

@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
     GameObject anime;
 
     public bool nowgaming;
+    public bool nowspeedup=false;
 
     public GameObject particle;
     public GameObject particle2;
@@ -344,6 +345,7 @@ public class Player : MonoBehaviour
                 Skill.gameObject.SetActive(false);
                 nowskill += Time.deltaTime;
                 speed += 5;
+                nowspeedup=true;
                 Invoke("stopSkill", 5.0f);
                 
                 
@@ -393,6 +395,7 @@ public class Player : MonoBehaviour
     {
         speed -= 5.0f;
         speedpar.gameObject.SetActive(false);
+        nowspeedup = false;
     }
     public void stopSkill2()
     {

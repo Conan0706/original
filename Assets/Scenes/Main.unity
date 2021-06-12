@@ -570,7 +570,7 @@ RectTransform:
   m_LocalScale: {x: 0.72780937, y: 0.73000914, z: 1}
   m_Children: []
   m_Father: {fileID: 1332807405}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1206,9 +1206,10 @@ MonoBehaviour:
   res: {fileID: 8300000, guid: bef503b3b7e7b3946a74f11fe206b345, type: 3}
   anim: {fileID: 0}
   nowgaming: 0
+  nowspeedup: 0
   particle: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
   particle2: {fileID: 1500378020736912, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
-  particle3: {fileID: 0}
+  particle3: {fileID: 1250507045210962, guid: 3fe0df07025a3e747855b1bb671fc04e, type: 3}
   speedpar: {fileID: 1646688836}
   mutekipar: {fileID: 337733840}
 --- !u!54 &467767462
@@ -1578,16 +1579,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606750503}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1332807405}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -179}
+  m_AnchoredPosition: {x: -25.157227, y: -192.83127}
   m_SizeDelta: {x: 200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606750505
@@ -2084,7 +2085,7 @@ RectTransform:
   m_LocalScale: {x: 0.64749074, y: 0.6615716, z: 1}
   m_Children: []
   m_Father: {fileID: 1332807405}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2798,9 +2799,9 @@ RectTransform:
   - {fileID: 1819985863}
   - {fileID: 736809272}
   - {fileID: 1660547826}
-  - {fileID: 606750504}
   - {fileID: 875753749}
   - {fileID: 298430065}
+  - {fileID: 606750504}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
