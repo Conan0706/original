@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GameController : MonoBehaviour
 {
-    public GameObject[] objects = new GameObject[2];
-    public GameObject[] objects2 = new GameObject[2];
+    public GameObject[] objects = new GameObject[3];
+    public GameObject[] objects2 = new GameObject[3];
     public GameObject[] healthpla = new GameObject[3];
 
     //ê∂ê¨éûä‘ä‘äu

@@ -192,6 +192,10 @@ public class Player : MonoBehaviour
                 {
                 Destroy(other.gameObject);
                 Invoke("stopSkill2", 5.0f);
+                }
+            else if(safezone==true)
+            {
+                Destroy(other.gameObject);
             }
 
             else if (rescount >= 5)
@@ -225,6 +229,7 @@ public class Player : MonoBehaviour
             }
             
         }
+        
        
     }
 
@@ -283,18 +288,64 @@ public class Player : MonoBehaviour
 
                 }
             }
-            
-            
+        /*else if (collision.gameObject.tag == "obstacle2")
+            {
 
-            
-            
-            
-            script.stopdamage();
+                
+                if (safezone == false)
+                {
+
+
+                    if (skill2 == true)
+                    {
+                        Destroy(collision.gameObject);
+                        Invoke("stopSkill2", 5.0f);
+                    }
+
+                    else if (rescount >= 5)
+                    {
+                        rescount -= 5;
+                        Destroy(collision.gameObject);
+                        restext.text = "Åô:" + rescount.ToString("f1");
+                        particle_pos = this.transform.position;
+                        Instantiate(particle3, particle_pos, Quaternion.identity);
+                        audioSourse.PlayOneShot(res);
+                    }
+
+                    else
+                    {
+                        Debug.Log("!");
+                        result.text = "Score" + uiscript.scorecounter.ToString("f1") + "M";
+                        result.gameObject.SetActive(true);
+                        Restart.gameObject.SetActive(true);
+                        gameOver();
+                        uiscript.score = false;
+                        uiscript.Best();
+                        script.damageselect = false;
+                        Skill.gameObject.SetActive(false);
+                        Skill2.gameObject.SetActive(false);
+
+                        skill2 = false;
+
+
+                        anim.SetBool("Dead", true);
+
+                        nowgaming = false;
+                    }
+                }
+
+            }
+        */
+
+
+
+                script.stopdamage();
             if(Input.GetKeyDown("space"))
             {
                 changeScene();
             }
         }
+        
     }
     private IEnumerator Speedup()
     {
