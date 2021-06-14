@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
             //スコア表示
             scorecounter += Time.deltaTime * 1.5f;
             //scorecounter += 0;
-            scoretext.text = scorecounter.ToString("f1") + "M";
+            scoretext.text = scorecounter.ToString("f1") +  " " + "M";
             
            
         }
