@@ -75,6 +75,9 @@ public class Player : MonoBehaviour
 
     public GameObject speedpar;
     public GameObject mutekipar;
+
+    private bool right = false;
+    private bool left = false;
     //bool gameOverselect=false;
     // Start is called before the first frame update
     void Start()
@@ -129,6 +132,7 @@ public class Player : MonoBehaviour
             if (pos_x < 9.0f)
             {
                 transform.position += new Vector3(slidespeed, 0, 0) * Time.deltaTime;
+                anim.SetBool("Roll_right", true);
             }
         }
 
@@ -137,8 +141,10 @@ public class Player : MonoBehaviour
             if(pos_x>-9.0f)
             {
                 transform.position -= new Vector3(slidespeed, 0, 0) * Time.deltaTime;
+                anim.SetBool("Roll_left", true);
             }
         }
+        
         
         if(result.gameObject==true)
         {
@@ -150,6 +156,24 @@ public class Player : MonoBehaviour
         skillcount += Time.deltaTime;
         skill();
 
+        /*if(Input.GetButton("right"))
+        {
+            if (pos_x < 9.0f)
+            {
+                transform.position += new Vector3(slidespeed, 0, 0) * Time.deltaTime;
+                anim.SetBool("Roll_right", true);
+            }
+        }
+
+        if(Input.GetButton("left"))
+        {
+            if (pos_x > -9.0f)
+            {
+                transform.position -= new Vector3(slidespeed, 0, 0) * Time.deltaTime;
+                anim.SetBool("Roll_left", true);
+            }
+        }
+        */
       
 
         
