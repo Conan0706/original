@@ -135,6 +135,10 @@ public class Player : MonoBehaviour
                 anim.SetBool("Roll_right", true);
             }
         }
+        if(Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            anim.SetBool("Roll_right", false);
+        }
 
         if(Input.GetKey(KeyCode.LeftArrow))
         {
@@ -143,6 +147,10 @@ public class Player : MonoBehaviour
                 transform.position -= new Vector3(slidespeed, 0, 0) * Time.deltaTime;
                 anim.SetBool("Roll_left", true);
             }
+        }
+        if(Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            anim.SetBool("Roll_left", false);
         }
         
         
