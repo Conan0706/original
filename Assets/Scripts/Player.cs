@@ -127,31 +127,34 @@ public class Player : MonoBehaviour
         //åªç›ÇÃXé≤éÊìæ
         pos_x = transform.position.x;
 
-        if(Input.GetKey(KeyCode.RightArrow))
-        {
-            if (pos_x < 9.0f)
+        
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                transform.position += new Vector3(slidespeed, 0, 0) * Time.deltaTime;
-                anim.SetBool("Roll_right", true);
+                if (pos_x < 9.0f && nowgaming==true)
+                {
+                    transform.position += new Vector3(slidespeed, 0, 0) * Time.deltaTime;
+                    anim.SetBool("Roll_right", true);
+                }
             }
-        }
-        if(Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            anim.SetBool("Roll_right", false);
-        }
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                anim.SetBool("Roll_right", false);
+            }
 
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            if(pos_x>-9.0f)
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                transform.position -= new Vector3(slidespeed, 0, 0) * Time.deltaTime;
-                anim.SetBool("Roll_left", true);
+                if (pos_x > -9.0f && nowgaming==true)
+                {
+                    transform.position -= new Vector3(slidespeed, 0, 0) * Time.deltaTime;
+                    anim.SetBool("Roll_left", true);
+                }
             }
-        }
-        if(Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            anim.SetBool("Roll_left", false);
-        }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                anim.SetBool("Roll_left", false);
+            }
+        
+        
         
         
         if(result.gameObject==true)
